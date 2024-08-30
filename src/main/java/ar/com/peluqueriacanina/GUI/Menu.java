@@ -46,6 +46,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnVerDatos.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVerDatos.setText("Ver Datos");
+        btnVerDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDatosActionPerformed(evt);
+            }
+        });
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnSalir.setText("Salir");
@@ -148,6 +153,12 @@ public class Menu extends javax.swing.JFrame {
         cargaDeDatos.setVisible(true);
         cargaDeDatos.setLocationRelativeTo(null);
     }//GEN-LAST:event_btncargarDatosActionPerformed
+
+    private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
+        VerDatos verDatos = new VerDatos();
+        verDatos.setVisible(true);
+        verDatos.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnVerDatosActionPerformed
 
     
 
