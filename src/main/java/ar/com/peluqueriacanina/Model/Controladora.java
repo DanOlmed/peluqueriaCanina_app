@@ -2,6 +2,7 @@
 package ar.com.peluqueriacanina.Model;
 
 import ar.com.peluqueriacanina.Persistence.ControladoraDePersistencia;
+import java.util.List;
 
 
 public class Controladora {
@@ -25,6 +26,13 @@ public class Controladora {
         mascota.setDuenio(duenio);
         
         controlPers.guardar(duenio,mascota);
+    }
+
+    public List<Mascota> traerMascotas() {
+        
+        
+        return controlPers.traerMascotas();
+       
     }
    
    

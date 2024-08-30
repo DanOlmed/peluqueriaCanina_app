@@ -9,14 +9,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class VerDatos extends javax.swing.JFrame {
 
-    
+    Controladora control = null;
     /**
      * Creates new form VerDatos
      */
     public VerDatos() {
+        control = new Controladora();
         initComponents();
     }
-    Controladora control = new Controladora();
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,7 +33,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaDeMascotas = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -47,7 +49,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Visualización de datos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaDeMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -58,7 +60,7 @@ public class VerDatos extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaDeMascotas);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel3.setText("Datos de mascotas");
@@ -160,19 +162,22 @@ public class VerDatos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaDeMascotas;
     // End of variables declaration                   
 
     private void cargarTabla() {
         //con esto se evita que el usuario pueda manipular la tabla mediante teclado directamente
-        DefaultTableModel tabla = new DefaultTableModel(){
-            public boolean IsCellEditable (int row, int column){
-                return false;
-            }
-        };
+       DefaultTableModel tablaModel = new DefaultTableModel(){
+         @Override
+         public boolean isCellEditable (int row, int column){
+             return false;
+         }
+           
+       };
+       
         //asigancion de titulos de las columnas
         String titulos []={"Num","Nombre","Color","Raza","Alergico","At.Esp","Dueño","Cel"};
-        tabla.setColumnIdentifiers(titulos);
+        tablaModel.setColumnIdentifiers(titulos);
         
         //carga de datos almacenados en la tabla
         List <Mascota>listaDeMascotas =control.traerMascotas();
@@ -182,10 +187,10 @@ public class VerDatos extends javax.swing.JFrame {
             for(Mascota masco:listaDeMascotas){
                 Object[] objeto = {masco.getNumCliente(), masco.getNombre(),masco.getRaza(),masco.getAlergico(),
                     masco.getAtencion_especial(),masco.getDuenio().getNombre(),masco.getDuenio().getCelDuenio()};
-                tabla.addRow(objeto);
+                tablaModel.addRow(objeto);
             }
         }
-        
+        tablaDeMascotas.setModel(tablaModel);
         
     }
 }

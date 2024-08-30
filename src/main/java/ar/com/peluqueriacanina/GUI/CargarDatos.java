@@ -272,7 +272,7 @@ public class CargarDatos extends javax.swing.JFrame {
         txtNombreDuenio.setText("");
         txtCelDuenio.setText("");
         cmbAlergico.setSelectedIndex(0);
-        cmbAtencionEsp.setSelectedItem(0);
+        cmbAtencionEsp.setSelectedIndex(0);
         txtObservaciones.setText("");
     }//GEN-LAST:event_limpiezaActionPerformed
 
