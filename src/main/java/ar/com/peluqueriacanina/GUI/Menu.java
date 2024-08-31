@@ -54,6 +54,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,6 +164,10 @@ public class Menu extends javax.swing.JFrame {
         verDatos.setVisible(true);
         verDatos.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVerDatosActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     
 
