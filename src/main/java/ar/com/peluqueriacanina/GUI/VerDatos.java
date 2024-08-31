@@ -39,6 +39,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,6 +71,11 @@ public class VerDatos extends javax.swing.JFrame {
         btnEditar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\iconoEditar.png")); // NOI18N
         btnEditar.setText(" Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\icono eliminar.png")); // NOI18N
@@ -79,6 +85,8 @@ public class VerDatos extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Desarrollado por Daniel Olmedo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,7 +104,10 @@ public class VerDatos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -112,7 +123,8 @@ public class VerDatos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jLabel2))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -175,6 +187,23 @@ public class VerDatos extends javax.swing.JFrame {
        
     }                                           
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        if(tablaDeMascotas.getRowCount()>0){
+           if(tablaDeMascotas.getSelectedRow()!=-1){
+               int num_cliente =Integer.parseInt(String.valueOf(tablaDeMascotas.getValueAt(tablaDeMascotas.getSelectedRow(),0)));
+               ModificarDatos pantallaModif = new ModificarDatos(num_cliente);
+               pantallaModif.setVisible(true);
+               pantallaModif.setLocationRelativeTo(null);
+               
+           }else{
+               mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");
+           }
+       } else{
+           mostrarMensaje("No hay nada para eliminar en la tabla", "Error", "Error al eliminar");
+       }
+        
+    }                                         
+
     public void mostrarMensaje(String mensaje,String tipo, String titulo){
            JOptionPane optionPane = new JOptionPane(mensaje);
                 if(tipo.equals("Info")){
@@ -198,6 +227,7 @@ public class VerDatos extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

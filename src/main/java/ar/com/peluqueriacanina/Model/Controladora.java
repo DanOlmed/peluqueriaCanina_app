@@ -38,6 +38,11 @@ public class Controladora {
     public void borrarMascota(int num_cliente) {
        controlPers.borrarMascota(num_cliente);
     }
+
+    public Mascota traerMascota(int num_cliente) {
+        
+         return controlPers.traerMascota(num_cliente);
+    }
    
    
     

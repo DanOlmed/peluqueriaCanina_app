@@ -31,6 +31,12 @@ public class ControladoraDePersistencia {
             Logger.getLogger(ControladoraDePersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Mascota traerMascota(int num_cliente) {
+        
+        return mascotaJpa.findMascota(num_cliente);
+        
+    }
     
     
     
