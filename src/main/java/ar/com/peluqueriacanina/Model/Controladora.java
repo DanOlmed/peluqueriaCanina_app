@@ -10,8 +10,8 @@ public class Controladora {
    ControladoraDePersistencia controlPers=new ControladoraDePersistencia();
 
     public void guardar(String nombre, String color, 
-            String raza, String nombreDuenio, String celDuenio, 
-            String alergico, String atEspecial, String observaciones) {
+                        String raza, String nombreDuenio, String celDuenio, 
+                        String alergico, String atEspecial, String observaciones) {
         Duenio duenio = new Duenio();
         duenio.setNombre(nombreDuenio);
         duenio.setCelDuenio(celDuenio);
@@ -42,6 +42,34 @@ public class Controladora {
     public Mascota traerMascota(int num_cliente) {
         
          return controlPers.traerMascota(num_cliente);
+    }
+
+    
+
+    public void modificarMascota(Mascota mascota, String nombre, String color, String raza, String nombreDuenio, String celDuenio, String alergico, String atEspecial, String observaciones) {
+        mascota.setNombre(nombre);
+        mascota.setRaza(raza);
+        mascota.setColor(color);
+        mascota.setAlergico(alergico);
+        mascota.setAtencion_especial(atEspecial);
+        mascota.setObservaciones(observaciones);
+        
+               
+        controlPers.modificarMascota(mascota);
+        
+        Duenio duenio = this.buscarDuenio(mascota.getDuenio().getIdDuenio()); 
+        duenio.setCelDuenio(celDuenio);
+        duenio.setNombre(nombreDuenio);
+        this.modificarDuenio(duenio);
+        
+    }
+
+    private Duenio buscarDuenio(int idDuenio) {
+       return controlPers.traerDuenio(idDuenio);
+    }
+
+    private void modificarDuenio(Duenio duenio) {
+        controlPers.modificarDuenio(duenio);
     }
    
    

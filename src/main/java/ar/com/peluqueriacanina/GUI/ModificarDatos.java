@@ -12,6 +12,7 @@ public class ModificarDatos extends javax.swing.JFrame {
     /**
      * Creates new form CargarDatos
      */
+    Mascota mascota;
     Controladora control = null;
     int num_cliente;
     public ModificarDatos(int num_cliente) {
@@ -284,6 +285,7 @@ public class ModificarDatos extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
+        
         String nombre = txtNombre.getText();
         String color = txtColor.getText();
         String raza = txtRaza.getText();
@@ -295,13 +297,14 @@ public class ModificarDatos extends javax.swing.JFrame {
                 
         
         
-        control.guardar(nombre,color,raza,nombreDuenio,celDuenio,alergico,atEspecial,observaciones);
+        control.modificarMascota(mascota,nombre,color,raza,nombreDuenio,celDuenio,alergico,atEspecial,observaciones);
         
-        JOptionPane optionPane = new JOptionPane("Operación realizada");
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = optionPane.createDialog("Guardado exitoso");
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);
+        mostrarMensaje("Edición realizada correctamente", "Info","Edición correcta");
+        
+        VerDatos pantalla = new VerDatos();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
    
@@ -335,7 +338,7 @@ public class ModificarDatos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarDatos(int num_cliente) {
-        Mascota mascota = control.traerMascota(num_cliente);
+        this.mascota = control.traerMascota(num_cliente);
         txtNombre.setText(mascota.getNombre());
         txtColor.setText(mascota.getColor());
         txtRaza.setText(mascota.getRaza());
@@ -359,5 +362,18 @@ public class ModificarDatos extends javax.swing.JFrame {
         
         
         txtObservaciones.setText(mascota.getObservaciones());
+    }
+    
+     public void mostrarMensaje(String mensaje,String tipo, String titulo){
+           JOptionPane optionPane = new JOptionPane(mensaje);
+                if(tipo.equals("Info")){
+                    optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+                }
+                else if(tipo.equals("Error")){
+                     optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);                   
+                }
+               JDialog dialog = optionPane.createDialog(titulo);
+               dialog.setAlwaysOnTop(true);
+               dialog.setVisible(true);
     }
 }

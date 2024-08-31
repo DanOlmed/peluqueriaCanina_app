@@ -194,6 +194,7 @@ public class VerDatos extends javax.swing.JFrame {
                ModificarDatos pantallaModif = new ModificarDatos(num_cliente);
                pantallaModif.setVisible(true);
                pantallaModif.setLocationRelativeTo(null);
+               this.dispose();
                
            }else{
                mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");
