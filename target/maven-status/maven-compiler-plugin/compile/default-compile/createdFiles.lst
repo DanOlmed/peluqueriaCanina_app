@@ -6,6 +6,7 @@ ar\com\peluqueriacanina\Model\Mascota_.class
 ar\com\peluqueriacanina\Persistence\DuenioJpaController.class
 ar\com\peluqueriacanina\GUI\VerDatos$1.class
 ar\com\peluqueriacanina\GUI\VerDatos$2.class
+ar\com\peluqueriacanina\GUI\VerDatos$3.class
 ar\com\peluqueriacanina\GUI\VerDatos.class
 ar\com\peluqueriacanina\Model\Duenio.class
 ar\com\peluqueriacanina\Model\Mascota.class

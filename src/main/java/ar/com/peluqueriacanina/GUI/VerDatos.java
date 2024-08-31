@@ -4,6 +4,8 @@ package ar.com.peluqueriacanina.GUI;
 import ar.com.peluqueriacanina.Model.Controladora;
 import ar.com.peluqueriacanina.Model.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -72,6 +74,11 @@ public class VerDatos extends javax.swing.JFrame {
         btnEliminar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\icono eliminar.png")); // NOI18N
         btnEliminar.setText(" Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,7 +155,40 @@ public class VerDatos extends javax.swing.JFrame {
         cargarTabla();
     }                                 
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       if(tablaDeMascotas.getRowCount()>0){
+           if(tablaDeMascotas.getSelectedRow()!=-1){
+               int num_cliente =Integer.parseInt(String.valueOf(tablaDeMascotas.getValueAt(tablaDeMascotas.getSelectedRow(),0)));
+               
+               //llamado al metodo de borrar
+               control.borrarMascota(num_cliente);
+ 
+               mostrarMensaje("Mascota eliminada correctamente", "Info","Borrado de mascota");
+               cargarTabla();
+           }
+           else{
+               mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");
+           }
+       } else{
+           mostrarMensaje("No hay nada para eliminar en la tabla", "Error", "Error al eliminar");
+       }
+       
+    }                                           
+
+    public void mostrarMensaje(String mensaje,String tipo, String titulo){
+           JOptionPane optionPane = new JOptionPane(mensaje);
+                if(tipo.equals("Info")){
+                    optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+                }
+                else if(tipo.equals("Error")){
+                     optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);                   
+                }
+               JDialog dialog = optionPane.createDialog(titulo);
+               dialog.setAlwaysOnTop(true);
+               dialog.setVisible(true);
+    }
     /**
+     * 
      * @param args the command line arguments
      */
   
