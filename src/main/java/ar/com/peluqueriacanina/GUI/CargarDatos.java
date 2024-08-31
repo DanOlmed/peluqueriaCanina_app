@@ -184,7 +184,7 @@ public class CargarDatos extends javax.swing.JFrame {
         );
 
         limpieza.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        limpieza.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\icono escoba1.png")); // NOI18N
+        limpieza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono escoba1.png"))); // NOI18N
         limpieza.setText(" Limpiar");
         limpieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +192,7 @@ public class CargarDatos extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\guardar1.png")); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guardar1.png"))); // NOI18N
         btnGuardar.setText(" Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +203,7 @@ public class CargarDatos extends javax.swing.JFrame {
         jLabel11.setText("Desarrollado por Daniel Olmedo");
 
         btnVolver.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\volver1.png")); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver1.png"))); // NOI18N
         btnVolver.setText(" Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

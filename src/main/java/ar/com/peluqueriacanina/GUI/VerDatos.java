@@ -68,7 +68,7 @@ public class VerDatos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaDeMascotas);
 
         btnEditar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\iconoEditar.png")); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoEditar.png"))); // NOI18N
         btnEditar.setText(" Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +77,7 @@ public class VerDatos extends javax.swing.JFrame {
         });
 
         btnEliminar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\icono eliminar.png")); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono eliminar.png"))); // NOI18N
         btnEliminar.setText(" Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class VerDatos extends javax.swing.JFrame {
         });
 
         btnVolver.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\volver1.png")); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver1.png"))); // NOI18N
         btnVolver.setText(" Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

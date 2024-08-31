@@ -161,7 +161,7 @@
                   <Font name="sansserif" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\giser\OneDrive\Escritorio\iconoEditar.png"/>
+                  <Image iconType="3" name="/iconoEditar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" Editar"/>
               </Properties>
@@ -175,7 +175,7 @@
                   <Font name="sansserif" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\giser\OneDrive\Escritorio\icono eliminar.png"/>
+                  <Image iconType="3" name="/icono eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" Eliminar"/>
               </Properties>
@@ -189,7 +189,7 @@
                   <Font name="sansserif" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\giser\OneDrive\Escritorio\volver1.png"/>
+                  <Image iconType="3" name="/volver1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" Volver"/>
               </Properties>

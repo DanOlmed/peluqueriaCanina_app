@@ -21,6 +21,7 @@ ar\com\peluqueriacanina\Persistence\DuenioJpaController.class
 ar\com\peluqueriacanina\GUI\VerDatos$1.class
 ar\com\peluqueriacanina\Model\Duenio.class
 ar\com\peluqueriacanina\Persistence\exceptions\NonexistentEntityException.class
+ar\com\peluqueriacanina\GUI\Menu$3.class
 ar\com\peluqueriacanina\Persistence\ControladoraDePersistencia.class
 ar\com\peluqueriacanina\Persistence\exceptions\IllegalOrphanException.class
 ar\com\peluqueriacanina\GUI\CargarDatos$2.class

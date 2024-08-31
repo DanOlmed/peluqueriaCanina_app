@@ -190,7 +190,7 @@ public class ModificarDatos extends javax.swing.JFrame {
         );
 
         limpieza.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        limpieza.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\icono escoba1.png")); // NOI18N
+        limpieza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono escoba1.png"))); // NOI18N
         limpieza.setText(" Limpiar");
         limpieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +198,7 @@ public class ModificarDatos extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Escritorio\\guardar1.png")); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guardar1.png"))); // NOI18N
         btnGuardar.setText(" Guardar cambios");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

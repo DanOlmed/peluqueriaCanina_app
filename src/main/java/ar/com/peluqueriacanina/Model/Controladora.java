@@ -71,6 +71,16 @@ public class Controladora {
     private void modificarDuenio(Duenio duenio) {
         controlPers.modificarDuenio(duenio);
     }
+
+    public boolean verificarUsuario(String user,String password) {
+        if(user.equals("usuario@usermail.com")&& password.equals("passwordGenerico")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    
    
    
     
