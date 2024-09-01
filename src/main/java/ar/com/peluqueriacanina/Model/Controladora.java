@@ -80,6 +80,21 @@ public class Controladora {
         }
     }
 
+    public String validarUsuario(String user, String password) {
+        String message ="";
+        List<Usuario> listaUsuarios = controlPers.traerUsuarios();
+        for(Usuario usuario:listaUsuarios){
+            if(usuario.getUsuario().equals(user)){
+                if(usuario.getPassword().equals(password)){
+                    message = "Usuario y contraseña Correctos";
+                }else{
+                    message ="Datos errones";
+                }
+            }
+        }
+        return message;
+    }
+
     
    
    

@@ -1,12 +1,15 @@
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\GUI\ModificarDatos.java
+C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\GUI\Login.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\GUI\Menu.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriapompon\Principal\PeluqueriaPompon.java
+C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Model\Usuario.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Model\Mascota.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Persistence\ControladoraDePersistencia.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Model\Controladora.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Persistence\exceptions\IllegalOrphanException.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Persistence\exceptions\PreexistingEntityException.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Persistence\exceptions\NonexistentEntityException.java
+C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Persistence\UsuarioJpaController.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\GUI\VerDatos.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\Model\Duenio.java
 C:\Users\giser\OneDrive\Documentos\NetBeansProjects\PeluqueriaPompon\src\main\java\ar\com\peluqueriacanina\GUI\CargarDatos.java

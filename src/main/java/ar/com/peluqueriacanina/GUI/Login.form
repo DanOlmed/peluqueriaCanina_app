@@ -107,8 +107,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtUsuario" max="32767" attributes="0"/>
-                          <Component id="txtPassWord" pref="231" max="32767" attributes="0"/>
+                          <Component id="txtUsuario" pref="231" max="32767" attributes="0"/>
+                          <Component id="txtPassWord" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -129,8 +129,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtPassWord" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtPassWord" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnIngresar" min="-2" max="-2" attributes="0"/>
@@ -158,8 +158,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtUsuario">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPassWord">
-            </Component>
             <Component class="javax.swing.JButton" name="btnIngresar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -170,6 +168,8 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txtPassWord">
             </Component>
           </SubComponents>
         </Container>
