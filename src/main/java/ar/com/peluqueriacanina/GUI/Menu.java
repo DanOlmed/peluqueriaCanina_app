@@ -181,7 +181,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
-       
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVerDatos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatos1ActionPerformed
