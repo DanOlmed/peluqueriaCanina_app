@@ -108,6 +108,10 @@ public class Controladora {
         return controlPers.traerTurnos();
     }
 
+    public void borrarTurno(int num_cliente) {
+        controlPers.borrarTurno(num_cliente);
+    }
+
     
 
     

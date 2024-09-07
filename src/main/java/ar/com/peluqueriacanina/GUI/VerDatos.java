@@ -3,6 +3,7 @@ package ar.com.peluqueriacanina.GUI;
 
 import ar.com.peluqueriacanina.Model.Controladora;
 import ar.com.peluqueriacanina.Model.Mascota;
+import ar.com.peluqueriacanina.Model.Turno;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -208,8 +209,15 @@ public class VerDatos extends javax.swing.JFrame {
                int num_cliente =Integer.parseInt(String.valueOf(tablaDeMascotas.getValueAt(tablaDeMascotas.getSelectedRow(),0)));
                
                //llamado al metodo de borrar
+               control.traerMascota(num_cliente);
+               List<Turno> turnos = control.traerTurnos();
+               for(Turno turn: turnos){
+                   if(turn.getMascota().getNumCliente()==num_cliente){
+                      control.borrarTurno(turn.getIdTurno());
+                   }
+               }
                control.borrarMascota(num_cliente);
- 
+               
                mostrarMensaje("Mascota eliminada correctamente", "Info","Borrado de mascota");
                cargarTabla();
            }

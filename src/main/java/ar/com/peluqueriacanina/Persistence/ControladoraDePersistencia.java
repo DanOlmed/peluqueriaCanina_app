@@ -79,6 +79,14 @@ public class ControladoraDePersistencia {
        return  turnoJpa.findTurnoEntities();
     }
 
+    public void borrarTurno(int num_cliente) {
+       try {
+            turnoJpa.destroy(num_cliente);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraDePersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 
    
