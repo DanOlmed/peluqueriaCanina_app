@@ -305,6 +305,10 @@ public class ModificarDatos extends javax.swing.JFrame {
         pantalla.setVisible(true);
         pantalla.setLocationRelativeTo(null);
         this.dispose();
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
    

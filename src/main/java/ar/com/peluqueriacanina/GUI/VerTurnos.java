@@ -1,19 +1,33 @@
 
 package ar.com.peluqueriacanina.GUI;
 
+import ar.com.peluqueriacanina.Model.Controladora;
+import ar.com.peluqueriacanina.Model.Turno;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 
-public class Turnos extends javax.swing.JFrame {
+public class VerTurnos extends javax.swing.JFrame {
 
     /**
      * Creates new form Turnos
      */
-    public Turnos() {
+    Controladora control=null;
+    AsignarTurnos asignarTurno = null;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    public VerTurnos() {
         initComponents();
+        control = new Controladora();
+        asignarTurno = new AsignarTurnos();
         
         
-    }   
+    }  
+    
+    
     
 
     /**
@@ -31,10 +45,12 @@ public class Turnos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         calendario = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbHorarios = new javax.swing.JComboBox<>();
         btnCheckDisponibility = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnAgendarTurno = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnTurnosDelDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,15 +62,20 @@ public class Turnos extends javax.swing.JFrame {
 
         jLabel3.setText("Desarrollado por Daniel Olmedo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "09:00", "11:00", "13:00", "15:00", "17:00" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbHorarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "09:00", "11:00", "13:00", "15:00", "17:00" }));
+        cmbHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbHorariosActionPerformed(evt);
             }
         });
 
         btnCheckDisponibility.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnCheckDisponibility.setText(" Chequear disponibilidad");
+        btnCheckDisponibility.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckDisponibilityActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnLimpiar.setText(" Limpiar");
@@ -66,6 +87,28 @@ public class Turnos extends javax.swing.JFrame {
 
         btnAgendarTurno.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnAgendarTurno.setText(" Agendar");
+        btnAgendarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendarTurnoActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\giser\\OneDrive\\Documentos\\NetBeansProjects\\PeluqueriaPompon\\src\\main\\resources\\volver1.png")); // NOI18N
+        btnSalir.setText("Volver");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnTurnosDelDia.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnTurnosDelDia.setText("Turnos vigentes");
+        btnTurnosDelDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTurnosDelDiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -74,8 +117,13 @@ public class Turnos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSalir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTurnosDelDia, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,13 +142,17 @@ public class Turnos extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCheckDisponibility)
                     .addComponent(btnLimpiar)
                     .addComponent(btnAgendarTurno))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(btnTurnosDelDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -153,25 +205,108 @@ public class Turnos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void cmbHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHorariosActionPerformed
+        
+    }//GEN-LAST:event_cmbHorariosActionPerformed
 
+    
+    
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         calendario.setDate(null);
+        cmbHorarios.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnAgendarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarTurnoActionPerformed
+        Date fecha = calendario.getDate();
+        String hora = (String)cmbHorarios.getSelectedItem();
+        List<Turno> turnos = control.traerTurnos();
+        int counter =0;
+        for(Turno turn:turnos){
+            if(turn.getDia().equals(fecha)&&turn.getHora().equals(hora)){
+                counter++;
+            } 
+            
+        }
+        if(counter>0){
+            rejected();
+        }else{
+                asignarTurno.setVisible(true);
+                asignarTurno.setLocationRelativeTo(null);
+                asignarTurno.getFecha(fecha, hora);
+                this.dispose();
+            
+        }
+        
+        
+    }//GEN-LAST:event_btnAgendarTurnoActionPerformed
+
+    private void btnCheckDisponibilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckDisponibilityActionPerformed
+        Date fecha = calendario.getDate();
+        String hora=(String)cmbHorarios.getSelectedItem();
+        checkDisponibilidad(fecha,hora);
+        
+        
+    }//GEN-LAST:event_btnCheckDisponibilityActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        Menu pantalla = new Menu();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnTurnosDelDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTurnosDelDiaActionPerformed
+        ListadoDeTurnosPorFecha listadoDeTurnos =new ListadoDeTurnosPorFecha();
+        listadoDeTurnos.setVisible(true);
+        listadoDeTurnos.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnTurnosDelDiaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
+    public void rejected(){
+                    JOptionPane optionPane = new JOptionPane("Turno ocupado");
+                    optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Atención");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+    }
+    public void checkDisponibilidad(Date fecha, String hora){
+        List<Turno> turnos = control.traerTurnos();
+        String fechaFormateada = sdf.format(fecha);
+        int counter = 0;
+        Date _fecha = null;
+        try{
+            _fecha = sdf.parse(fechaFormateada);
+        } catch (ParseException e) {
+             e.printStackTrace();
+            }
+        
+        for(Turno turn:turnos){
+            if(turn.getDia().equals(_fecha)&&turn.getHora().equals(hora)){
+                    counter++;
+            }
+        }
+        if(counter>0){
+            rejected();
+        }else{
+                    JOptionPane optionPane = new JOptionPane("Turno Disponible");
+                    optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+                    JDialog dialog = optionPane.createDialog("Atención");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendarTurno;
     private javax.swing.JButton btnCheckDisponibility;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnTurnosDelDia;
     private com.toedter.calendar.JDateChooser calendario;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmbHorarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

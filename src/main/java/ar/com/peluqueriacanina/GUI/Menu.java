@@ -169,22 +169,26 @@ public class Menu extends javax.swing.JFrame {
         CargarDatos cargaDeDatos = new CargarDatos();
         cargaDeDatos.setVisible(true);
         cargaDeDatos.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btncargarDatosActionPerformed
 
     private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
         VerDatos verDatos = new VerDatos();
         verDatos.setVisible(true);
         verDatos.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
+       
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVerDatos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatos1ActionPerformed
-        Turnos turnos = new Turnos();
+        VerTurnos turnos = new VerTurnos();
         turnos.setVisible(true);
         turnos.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnVerDatos1ActionPerformed
 
     

@@ -3,8 +3,10 @@ package ar.com.peluqueriacanina.Persistence;
 
 import ar.com.peluqueriacanina.Model.Duenio;
 import ar.com.peluqueriacanina.Model.Mascota;
+import ar.com.peluqueriacanina.Model.Turno;
 import ar.com.peluqueriacanina.Model.Usuario;
 import ar.com.peluqueriacanina.Persistence.exceptions.NonexistentEntityException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ public class ControladoraDePersistencia {
     MascotaJpaController mascotaJpa= new MascotaJpaController();
     DuenioJpaController duenioJpa=new DuenioJpaController();
     UsuarioJpaController usuarioJpa = new UsuarioJpaController();
+    TurnoJpaController turnoJpa = new TurnoJpaController();
 
     public void guardar(Duenio duenio, Mascota mascota) {
         duenioJpa.create(duenio);
@@ -63,6 +66,20 @@ public class ControladoraDePersistencia {
     public List<Usuario> traerUsuarios() {
         return usuarioJpa.findUsuarioEntities();
     }
+
+    
+
+    
+
+    public void setTurno(Turno turno) {
+        turnoJpa.create(turno);
+    }
+
+    public List<Turno> traerTurnos() {
+       return  turnoJpa.findTurnoEntities();
+    }
+
+    
 
    
 

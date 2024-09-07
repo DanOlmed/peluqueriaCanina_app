@@ -2,6 +2,7 @@
 package ar.com.peluqueriacanina.Model;
 
 import ar.com.peluqueriacanina.Persistence.ControladoraDePersistencia;
+import java.util.Date;
 import java.util.List;
 
 
@@ -94,6 +95,20 @@ public class Controladora {
         }
         return message;
     }
+
+    
+
+    
+
+    public void setearTurno(Turno turno) {
+        controlPers.setTurno(turno);
+    }
+
+    public List<Turno> traerTurnos() {
+        return controlPers.traerTurnos();
+    }
+
+    
 
     
    
