@@ -20,6 +20,13 @@ Password: passwordGenerico
 
 Espero que disfrutes viendo, leyendo, utilizando este código, así como yo disfrute aprendiendo a hacerlo.
 
+***ACTUALIZACIÓN DE ESTADO***
+He implementado las creación y asignación de turnos a traves de un JCalendar, en la nueva interfaz, el usuario puede elegir dia y hora (dentro de un rango seteado).
+Se realiza comprobación de preexistencia de turno para poder crearlo, en caso de existir turno, el sistema informa que ya existe un turno vigente para ese día y horario,
+caso contrario, pasamos a la interfaz de confirmacion de turno, donde debemos ingresar el nombre de la mascota a la cual queremos asignar el turno. En caso de no existir coincidencia 
+en el nombre de la mascota, el sistema nos informará la situación, de lo contrario el turno será confirmado.
+Se ha implementado una interfaz gráfica para mostrar los turnos vigentes del día, en ella atraves de JCalendar podemos elegir el día y se nos mostrará en pantalla un listado con dia, hora, nombre de la mascota, nombre del dueño y telefono de contacto.
+
 
 
 
